@@ -117,12 +117,25 @@ def global_graph(input_graph_renew, input_graph_eff):
     plt.show()
 ```
 
-The last step of the process was plotting it all out.
+The last step of the process was plotting it all out. I believe the only thing of note here is that because the original spreadsheet showed the ratio in terms of countries, those weren't weighted properly so compiling them through a mean would give bad data. For example, Switzerland's high percentage would even out with China's low percentage, despite China having much more energy production. Therfore, I decided to make a simple ratio with the data I had.
 
 
-(data/Renewable_Graph.png)
 ```python
 if __name__ == '__main__':
     renew_path = '../data/Renewable - gtfrenewableenergydata.csv'
     eff_path = '../data/Efficiency - gtfprimaryenergyintensitydata.csv'
     global_graph(clean_data_renew(renew_path),clean_data_efficiency(eff_path))
+```
+
+
+(data/Renewable_Graph.png)
+
+# The Outcome
+
+The two graphs show interesting, but nearly conflicting information. On the one hand, the information in the graph up top shows a hopeful image of our renewable energy sources outpacing and eventually overcoming non-renewable. The purple line being the ratio and as it increases, the more renewables we use in comparison to non-renewables. The graph on the bottom, however, is more difficult to understand. After all, in most business classes a simple truth is taught: the more we do capitalism, the better we get at it. First we have sticks and stones and now we have Legend of Zelda: Tears of the Kingdom. More simply, the things we create get better and better. Our GDP (PPP) produced per unity of energy should be increasing, not decreasing. This points to a few different hypothesese which could be looked into with other sets of data in other projects.
+
+1.) Our level of technological progress has not shown nearly the rate of improvement as in previous decades. The typepress changed everything. The steam engine changed everything. The internet changed everything... What after that? Without a technological improvement on the level of the introduction and proliferation of the internet, our rate of productivity will plateau, even if our energy production rises. As a corollary, we are increasing energy production to make up for the lack of productivity.
+
+2.) Efficiency doesn't actually matter for the exact reason of technological advancement. As our methodologies improve, so too does our ability to extract large amounts of energy for a cheap price. As our technologies improve, the cost of our energy production goes down and our efficiency in using it decreases due to its abundance. To put more simply: because there's so much energy, we don't have to be efficient with it.
+
+Though times are tough right now, capital reigns supreme. I suspect that because renewables are showing such leaps and bounds in progress we can see them continue to outpace non-renewables as their sources become cheaper and cheaper in comparison.

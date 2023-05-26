@@ -4,6 +4,12 @@ import matplotlib.pyplot as plt
 
 
 def clean_data_renew(filepath):
+
+    '''
+    input is a filepath leading to the dataset. This won't help you very much unless you're using the exact data set lined out in the readme
+
+    output is a parsed dataframe, mostly just dropping unuseable columns and rows that had null values
+    '''
     df_renew_stp1 = pd.read_csv(filepath)
     df_renew_stp2 = df_renew_stp1.drop(columns=['Series Code', 'Country Code'], axis=1)
     df_renew_stp3 = df_renew_stp2.drop(df_renew_stp2.loc[df_renew_stp2['1990 [YR1990]'] == '..'].index)
@@ -36,6 +42,14 @@ def clean_data_renew(filepath):
     return df_renew_index_series
 
 def clean_data_efficiency(filepath):
+
+    '''
+    input is a filepath leading to the dataset. This won't help you very much unless you're using the exact data set lined out in the readme
+
+    output is a parsed dataframe, mostly just dropping unuseable columns and rows that had null values.
+
+    You may notice that both of these functions do essentially the same job and that's because they are compiled in a similar format with few deviations.
+    '''
     df_eff_stp1 = pd.read_csv(filepath)
     df_eff_stp2 = df_eff_stp1.drop(columns=['Series Code', 'Country Code'], axis=1)
     df_eff_stp3 = df_eff_stp2.drop(df_eff_stp2.loc[df_eff_stp2['1990 [YR1990]'] == '..'].index)
@@ -68,6 +82,13 @@ def clean_data_efficiency(filepath):
     return df_eff_country_series
 
 def global_graph(input_graph_renew, input_graph_eff):
+    '''
+    input are the two graphs cleaned up above.
+
+    output is a graph of my design, showing two graphs, one which compares global increases in non-renewable to renewable energy and the other that shows the relative efficiency of energy to global value produced.
+
+    for the graphing, I believe most of this code is fairly understandable - There's not complex math happening here. The biggest thing is that I had to create a different ratio to more accurately reflect a global ratio
+    '''
     df_renew_stp1 = input_graph_renew.drop('Country Name', axis=1)
     df_renew = df_renew_stp1.groupby('Series Name').mean(numeric_only=True)
     df_eff = input_graph_eff.groupby('Series Name').mean(numeric_only=True)
@@ -95,6 +116,9 @@ def global_graph(input_graph_renew, input_graph_eff):
     plt.show()
 
 if __name__ == '__main__':
+    '''
+    If name = main block. Setting out file paths and plugging them in to the functions defined above.
+    '''
     renew_path = '../data/Renewable - gtfrenewableenergydata.csv'
     eff_path = '../data/Efficiency - gtfprimaryenergyintensitydata.csv'
     global_graph(clean_data_renew(renew_path),clean_data_efficiency(eff_path))

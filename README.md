@@ -128,7 +128,7 @@ if __name__ == '__main__':
 ```
 
 
-[data/Renewable_Graph.png]
+[Test_data/Renewable_Graph.png](Test_Data/Renewable_Graph.png)
 
 # The Outcome
 

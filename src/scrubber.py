@@ -3,8 +3,8 @@ import numpy as np
 import matplotlib.pyplot as plt 
 
 
-def clean_data_renew():
-    df_renew_stp1 = pd.read_csv('../data/Renewable - gtfrenewableenergydata.csv')
+def clean_data_renew(filepath):
+    df_renew_stp1 = pd.read_csv(filepath)
     df_renew_stp2 = df_renew_stp1.drop(columns=['Series Code', 'Country Code'], axis=1)
     df_renew_stp3 = df_renew_stp2.drop(df_renew_stp2.loc[df_renew_stp2['1990 [YR1990]'] == '..'].index)
     df_renew_index_series = df_renew_stp3.astype({'1990 [YR1990]': float,
@@ -35,8 +35,8 @@ def clean_data_renew():
                                                 })
     return df_renew_index_series
 
-def clean_data_efficiency():
-    df_eff_stp1 = pd.read_csv('../data/Efficiency - gtfprimaryenergyintensitydata.csv')
+def clean_data_efficiency(filepath):
+    df_eff_stp1 = pd.read_csv(filepath)
     df_eff_stp2 = df_eff_stp1.drop(columns=['Series Code', 'Country Code'], axis=1)
     df_eff_stp3 = df_eff_stp2.drop(df_eff_stp2.loc[df_eff_stp2['1990 [YR1990]'] == '..'].index)
     df_eff_country_series = df_eff_stp3.astype({'1990 [YR1990]': float,
@@ -65,7 +65,7 @@ def clean_data_efficiency():
                                                 '2013 [YR2013]': float,
                                                 '2014 [YR2014]': float
                                                 })
-    return df_eff_country_series.head()
+    return df_eff_country_series
 
 def global_graph(input_graph_renew, input_graph_eff):
     df_renew_stp1 = input_graph_renew.drop('Country Name', axis=1)
@@ -75,16 +75,15 @@ def global_graph(input_graph_renew, input_graph_eff):
     y_renew = df_renew.loc['Renewable electricity output (GWh)']
     y1_renew = df_renew.loc['Renewable electricity output (GWh)'] / df_renew.loc['Total electricity output (GWh)'] 
     y2_renew = df_renew.loc['Total electricity output (GWh)']
-    fig, (axs1, axs2)  = plt.subplots(2, figsize=(10,7), sharex=True)
+    fig, (axs1, axs2)  = plt.subplots(2, figsize=(10,14), sharex=True)
     ax2 = axs1.twinx()
     x_eff = df_eff.columns[:]
     y_eff = df_eff.loc['Energy intensity level of primary energy (MJ/2011 USD PPP)']
     axs1.plot(x_renew, y_renew, label="Renewable electricity output (GWh)", color="blue", marker='.')
     ax2.plot(x_renew, y1_renew, label="Renewable electricity share of total electricity output (%)", color="purple", marker='.')
     axs1.plot(x_renew, y2_renew, label="Total electricity output (GWh)", color="red", marker='.')
-    axs1.set_title("Renewable Field")
+    axs1.set_title("Renewable Energy")
     axs1.set_xlabel("Years")
-    axs1.set_ylabel("Signifiers")
     axs1.legend()
     ax2.legend(loc = 1)
     axs2.plot(x_eff, y_eff, label="Energy intensity level of primary energy (MJ/2011 USD PPP)", color="blue", marker='.')
@@ -96,4 +95,6 @@ def global_graph(input_graph_renew, input_graph_eff):
     plt.show()
 
 if __name__ == '__main__':
-    global_graph(clean_data_renew(),clean_data_efficiency())
+    renew_path = '../data/Renewable - gtfrenewableenergydata.csv'
+    eff_path = '../data/Efficiency - gtfprimaryenergyintensitydata.csv'
+    global_graph(clean_data_renew(renew_path),clean_data_efficiency(eff_path))

@@ -128,10 +128,10 @@ if __name__ == '__main__':
 ```
 
 
-[Test_data/Renewable_Graph.png](Test_Data/Renewable_Graph.png)
-[Test_Data/Global_Efficiency.png](Test_Data/Global_Efficiency.png)
-[Test_Data/Renewable_Graph_No_Ratio.png](Test_Data/Renewable_Graph_No_Ratio.png)
-[Test_Data/Renewable_Graph_Ratio.png](Test_Data/Renewable_Graph_Ratio.png)
+![Test_data/Renewable_Graph.png](Test_Data/Renewable_Graph.png)
+![Test_Data/Global_Efficiency.png](Test_Data/Global_Efficiency.png)
+![Test_Data/Renewable_Graph_No_Ratio.png](Test_Data/Renewable_Graph_No_Ratio.png)
+![Test_Data/Renewable_Graph_Ratio.png](Test_Data/Renewable_Graph_Ratio.png)
 
 # The Outcome
 

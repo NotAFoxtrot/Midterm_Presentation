@@ -129,8 +129,13 @@ if __name__ == '__main__':
 
 
 [Test_data/Renewable_Graph.png](Test_Data/Renewable_Graph.png)
+[Test_Data/Global_Efficiency.png](Test_Data/Global_Efficiency.png)
+[Test_Data/Renewable_Graph_No_Ratio.png](Test_Data/Renewable_Graph_No_Ratio.png)
+[Test_Data/Renewable_Graph_Ratio.png](Test_Data/Renewable_Graph_Ratio.png)
 
 # The Outcome
+
+This is in reference to the first image which shows two graphs.
 
 The two graphs show interesting, but nearly conflicting information. On the one hand, the information in the graph up top shows a hopeful image of our renewable energy sources outpacing and eventually overcoming non-renewable. The purple line being the ratio and as it increases, the more renewables we use in comparison to non-renewables. The graph on the bottom, however, is more difficult to understand. After all, in most business classes a simple truth is taught: the more we do capitalism, the better we get at it. First we have sticks and stones and now we have Legend of Zelda: Tears of the Kingdom. More simply, the things we create get better and better. Our GDP (PPP) produced per unity of energy should be increasing, not decreasing. This points to a few different hypothesese which could be looked into with other sets of data in other projects.
 
